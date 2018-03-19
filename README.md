@@ -4,7 +4,7 @@ In order to satisfy the requirements of the variety of network applications and 
 ## PTLCSA Algorithm
 Combining the above content, this section puts forward the new concept of data priority matching degree of the link(DPMD), and puts forward the link scheduling algorithm PTLCSA based on delay and load of the link as well as packet priority on the premise that the traffic flow density is considered, to realize the heterogeneous network convergence at LLC layer, ensure communication requirements of other types of applications on the premise of meeting QoE of security applications, and improve the utilization ratio of links.<br>
 <br>
-![](https://github.com/IoTLabDLUT/MPLLC/raw/master/image/protocol.png)
+![](https://github.com/IoTLabDLUT/MPLLC/raw/master/image/protocol.png)<br>
 protocol structure of PTLCSA<br>
 ### Design of PTLCSA Algorithm
 In PTLCSA, this paper combines data priority with delay and load of links and traffic flow density of vehicle mobile environment to calculate DPMDs of multiple links in heterogeneous network, to dynamically adjust link load and ensure full utilization of link resources on the premise that transmission requirements of WSM is ensured. The structure chart of the algorithm is shown in as follow, in which obtainment of data type, calculation and comparison of DPMD of each link, and calculation of the maximum distribution frequency of non-WSM are key parts of PTLCSA.<br>
