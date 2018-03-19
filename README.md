@@ -10,7 +10,35 @@ Combining the above content, this section puts forward the new concept of data p
 In PTLCSA, this paper combines data priority with delay and load of links and traffic flow density of vehicle mobile environment to calculate DPMDs of multiple links in heterogeneous network, to dynamically adjust link load and ensure full utilization of link resources on the premise that transmission requirements of WSM is ensured. The structure chart of the algorithm is shown in as follow, in which obtainment of data type, calculation and comparison of DPMD of each link, and calculation of the maximum distribution frequency of non-WSM are key parts of PTLCSA.<br>
 ![](https://github.com/IoTLabDLUT/MPLLC/raw/master/image/ptlcsa.png)<br>
 * Obtainment of data type. Whenever the vehicle wants to send packets, the packet will be transported downward to LLC layer from upper * layer, and LLC layer will carry out judgment of data type according to the priority of the packet. If the packet is WSM, it will be distributed directly into the IEEE 802.11p link, to ensure the transmission requirement and QoE of security applications.
-* Calculation and comparison of DPMD of each link. If packets of traditional TCP/IP is transported to LLC layer, namely, non-WSM, the current status of links should be measured and analyzed to select the most appropriate link for the packet to transmit.
+* Calculation and comparison of DPMD of each link. If packets of traditional TCP/IP is transported to LLC layer, namely, non-WSM, the current status of links should be measured and analyzed to select the most appropriate link for the packet to transmit.<br>
+'"cpp
+double getChannelC(Channel* channel, Packet* packet)
+{
+	double beta = (double)(packet->getPriority() + 1) / 5;//calculate priority
+	double rttEle, loadEle;
+	double channelC;
+	MyQueue* tempSendQueue = channel->getSendQueue();
+
+	channel->send_mtx.lock();
+	channel->rtt_mtx.lock();
+	if (channel->getNum() == 1)
+	{
+		rttEle = channel->getRTT() / RTT_80211P;//calculate rtt factor
+		loadEle = (double)tempSendQueue->getNowLoad() / (double)(tempSendQueue->size() - 20);//calculate load factor
+	}
+	else
+	{
+		rttEle = channel->getRTT() / RTT_LTE;//calculate rtt factor
+		loadEle = (double)tempSendQueue->getNowLoad() / (double)tempSendQueue->size();//calculate load factor
+	}
+	channelC = beta * rttEle + (1 - beta) * loadEle;
+	channel->rtt_mtx.unlock();
+	channel->send_mtx.unlock();
+
+	return channelC;
+}
+'"
+
 * Calculation of the maximum distribution frequency of non-WSM. Calculate the maximum distribution frequency and the instantaneous distribution frequency, adn compare them.<br>
 
 ![](https://github.com/IoTLabDLUT/MPLLC/raw/master/image/pseudocode.png)<br>
