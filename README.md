@@ -33,9 +33,14 @@ For the size of experiment sample, this experiment sets 5000 packets, in which t
 #### Comparison and Analysis of  Transmission Performance of WSM
 The figures indicate the transmission delay of WSM under different traffic flow density environments. It shows that in sparse, medium and dense cases, the transmission delay of WSM of PTLCSA  is smaller than RPA and larger than BFaaS. In addition, when the link has congestion, PTLCSA will dynamically adjust the link load, thus to reduce congestion of the link, ensure the link in a relatively good state, and reduce the transmission delay of WSM. As mentioned above, WSM can only be transported through IEEE 802.11p link. Thus, the figures show that when the traffic flow is denser, the performances and qualities of three algorithms is closer, because the quantity of WSM on IEEE 802.11p link is far more than the quantity of non-WSM. When the traffic flow density reaches the extremely dense, namely,  the proportion of WSM in total packets reaches 80%, and three algorithms have almost same transmission performance of WSM. <br>
 
-![](https://github.com/IoTLabDLUT/MPLLC/raw/master/image/linechart/200WSM.jpg)  ![](https://github.com/IoTLabDLUT/MPLLC/raw/master/image/linechart/500WSM.jpg)<br>
-
-![](https://github.com/IoTLabDLUT/MPLLC/raw/master/image/linechart/1000WSM.jpg)  ![](https://github.com/IoTLabDLUT/MPLLC/raw/master/image/linechart/4000WSM.jpg)<br>
+![](https://github.com/IoTLabDLUT/MPLLC/raw/master/image/linechart/200WSM.jpg)<br>
+(a)WSM delay of sparse density<br>
+![](https://github.com/IoTLabDLUT/MPLLC/raw/master/image/linechart/500WSM.jpg)<br>
+(b) WSM delay of medium density<br>
+![](https://github.com/IoTLabDLUT/MPLLC/raw/master/image/linechart/1000WSM.jpg)<br>
+(c) WSM delay of dense density
+![](https://github.com/IoTLabDLUT/MPLLC/raw/master/image/linechart/4000WSM.jpg)<br>
+(d) WSM delay of extremely dense density<br>
 
 The above figures show that under non-extreme cases, WSM delay of BFaaS is lower than RPA and PTLCSA. This is because that under the situation that the traffic flow is not dense, the frequency of generating WSM is lower, while IEEE 802.11p link in BFaaS is only responsible for transmission of WSM. Thus, IEEE 802.11p link in BFaaS will not have congestion, and the delay of WSM is low. But the low WSM delay of BFaaS is realized at the expense of massive link resources.
 ## Conclusions
