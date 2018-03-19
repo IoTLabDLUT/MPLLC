@@ -12,6 +12,7 @@ In PTLCSA, this paper combines data priority with delay and load of links and tr
 * Obtainment of data type. Whenever the vehicle wants to send packets, the packet will be transported downward to LLC layer from upper * layer, and LLC layer will carry out judgment of data type according to the priority of the packet. If the packet is WSM, it will be distributed directly into the IEEE 802.11p link, to ensure the transmission requirement and QoE of security applications.
 * Calculation and comparison of DPMD of each link. If packets of traditional TCP/IP is transported to LLC layer, namely, non-WSM, the current status of links should be measured and analyzed to select the most appropriate link for the packet to transmit.
 * Calculation of the maximum distribution frequency of non-WSM. Calculate the maximum distribution frequency and the instantaneous distribution frequency, adn compare them.<br>
+<br>
 ![](https://github.com/IoTLabDLUT/MPLLC/raw/master/image/pseudocode.png)<br>
 Pseudo-code of PTLCSA<br>
 ## Experimental simulation and performance analysis
