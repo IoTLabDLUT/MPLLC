@@ -19,7 +19,7 @@ Pseudo-code of PTLCSA<br>
 ### Simulation Environment and Settings
 The comparison experiment of the performance carries out data transmission on Node A and Node B. Node A is the sending node and Node B is receiving node. Node A communicates with Node B through two links. Link 1 simulates IEEE 802.11p link, and Link 2 simulates LTE link. IEEE 802.11p link is also used for special transmission of WSM. Under the same network environment, different traffic flow densities are set respectively, and comparison experiment is carried out. When the transmission of all packets is completed, the experiment stops.<br>
 
-![](https://github.com/IoTLabDLUT/MPLLC/raw/master/image/model.png)
+![](https://github.com/IoTLabDLUT/MPLLC/raw/master/image/model.png)<br>
 ![](https://github.com/IoTLabDLUT/MPLLC/raw/master/image/linkparameters.png)<br>
 ## Conclusions
 Based on the analysis of researches on heterogeneous network convergence, this paper puts forward a link scheduling algorithm PTLCSA for heterogeneous network based on data priority, link status and traffic flow density aiming at the transmission requirements of security services in VANET. PTLCSA ensures the QoE of non-security services on the premise that transmission requirements of security services are  met at first. Meanwhile, NFV is used to carry out unified management of link resources in VANET, which can improve the utilization ratio of link resources. The simulation result shows that PTLCSA can improve the average utilization ratios of links as well as effectively reduce average transmission delay of WSM in VANET, to utilize link resources fully, improve transmission efficiency of whole network, and  improve the performance of VANET further.
